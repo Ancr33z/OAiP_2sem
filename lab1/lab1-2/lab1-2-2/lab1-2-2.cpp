@@ -15,8 +15,12 @@ int sum(int n, ...)
 {
     int* p = &n;
     int sum = 0;
+    ++p;
+    ++p;
     for (int i = 1; i < n; i++) {
-        sum += (*(p + i) * *(p + i + 1));
+        sum += (*(p) * *(p + 2));
+        p++;
+        p++;
     }
     return sum;
 }

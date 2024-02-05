@@ -1,19 +1,22 @@
 ﻿#include <iostream>
 #include <cstdio>
 
+using namespace std;
+
 int main() {
     setlocale(LC_CTYPE, "Russian");
 
     // Открываем файлы fA и fB для чтения
     FILE* fileA;
+
     if (fopen_s(&fileA, "fA.txt", "rt") != 0) {
-        std::cerr << "Ошибка открытия файла fA.txt" << std::endl;
+        cerr << "Ошибка открытия файла fA.txt" << std::endl;
         return 1;
     }
 
     FILE* fileB;
     if (fopen_s(&fileB, "fB.txt", "rt") != 0) {
-        std::cerr << "Ошибка открытия файла fB.txt" << std::endl;
+        cerr << "Ошибка открытия файла fB.txt" << std::endl;
         fclose(fileA);
         return 1;
     }
@@ -21,14 +24,14 @@ int main() {
     // Читаем количество столбцов в каждой матрице из начала файлов
     int columnsA, columnsB;
     if (fscanf_s(fileA, "%d", &columnsA) != 1 || fscanf_s(fileB, "%d", &columnsB) != 1) {
-        std::cerr << "Ошибка чтения количества столбцов из файлов fA.txt или fB.txt" << std::endl;
+        cerr << "Ошибка чтения количества столбцов из файлов fA.txt или fB.txt" << std::endl;
         fclose(fileA);
         fclose(fileB);
         return 1;
     }
 
     if (columnsA != columnsB) {
-        std::cerr << "Количество столбцов в матрицах не совпадает." << std::endl;
+        cerr << "Количество столбцов в матрицах не совпадает." << std::endl;
         fclose(fileA);
         fclose(fileB);
         return 1;
@@ -37,7 +40,7 @@ int main() {
     // Открываем файл fC для записи
     FILE* fileC;
     if (fopen_s(&fileC, "fC.txt", "w") != 0) {
-        std::cerr << "Ошибка открытия файла fC.txt для записи" << std::endl;
+        cerr << "Ошибка открытия файла fC.txt для записи" << std::endl;
         fclose(fileA);
         fclose(fileB);
         return 1;
@@ -64,7 +67,7 @@ int main() {
     fclose(fileB);
     fclose(fileC);
 
-    std::cout << "Сумма матриц M1 и M2 записана в файл fC.txt" << std::endl;
+    cout << "Сумма матриц M1 и M2 записана в файл fC.txt" << std::endl;
 
     return 0;
 }
