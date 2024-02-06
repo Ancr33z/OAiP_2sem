@@ -1,12 +1,19 @@
 ﻿#include <iostream>
+#include <fstream>
 
 using namespace std;
 
-void input(int size);
+void input();
 void output();
 void find(char lastName[16]);
+void writeToFile();
+void toConsole();
+void delClient();
 
-int clientNumber; FILE* f; errno_t err;
+#define MAXSIZE 100
+
+int clientNumber; FILE* f; errno_t err,choice, current_size = 0;
+
 
 typedef struct HotelClient
 {
@@ -18,35 +25,46 @@ typedef struct HotelClient
 	int room;
 } CLIENT;
 
+CLIENT  clients[MAXSIZE];
+
 int main()
 {
 	setlocale(LC_ALL, "Russian");
 
 	const int size = 50;
-	int i, b, choice, counter = 0;
 	char lastName[20];
 
 	do
 	{
-		cout << "\n1.Ввод данных с клавиатуры и запись в файл\n";
-		cout << "2.Вывод данных из файла\n";
-		cout << "3.Поиск по фамилии\n";
+		cout << "1.Ввод клиента\n";
+		cout << "2.Ввод данных в файл\n";
+		cout << "3.Вывод элементов в консоль \n";
+		cout << "4.Удаление клиента\n";
+		cout << "5.Вывод данных из файла\n";
+		cout << "6.Поиск по фамилии\n";
 		cout << "0.Выход из программы\n\n";
 		cout << "Введите номер операции: ";
 		cin >> choice;
 		switch (choice)
 		{
 		case 1:
-			cout << "Введите количество клиентов: ";
-			cin >> clientNumber;
-			input(clientNumber);
+			cout << "Введите клиента: \n";
+			input();
 			break;
-
 		case 2:
+			writeToFile();
+			break;
+		case 3:
+			toConsole();
+			break;
+		case 4:
+			delClient();
+			break;
+		case 5:
 			output();
 			break;
 
-		case 3:
+		case 6:
 			cout << "Введите фамилию: ";
 			cin >> lastName;
 			find(lastName);
@@ -63,25 +81,35 @@ int main()
 	return 0;
 }
 
-void input(int size)
+void input()
 {
 	setlocale(LC_ALL, "Russian");
+	
 
-	CLIENT buf = { ' ', ' ', ' ', ' ', ' ', ' ' };
+	if (current_size < MAXSIZE)
+	{
+		cout << "\nПаспортные данные: "; 	cin >> clients[current_size].passportDetails;
+		cout << "\nФамилия: "; 	cin >> clients[current_size].lastName;
+		cout << "\nДата приезда: "; 	cin >> clients[current_size].arrivalDates;
+		cout << "\nДата отъезда: "; 	cin >> clients[current_size].departureDates;
+		cout << "\nТип размещения: "; 	cin >> clients[current_size].placementType;
+		cout << "\nНомер: "; 	cin >> clients[current_size].room;
+		current_size++;
+	}
+	else {
+		cout << "Достигнуто максимальное количество клиентов.\n";
+	}
+
+}
+
+
+void writeToFile() {
+
 	if (!fopen_s(&f, "base.bin", "ab"))
 	{
-		for (int p = 0; p < size; p++)
-		{
 
-			cout << "Паспортные данные: "; 	cin >> buf.passportDetails;
-			cout << "Фамилия: "; 	cin >> buf.lastName;
-			cout << "Дата приезда: "; 	cin >> buf.arrivalDates;
-			cout << "Дата отъезда: "; 	cin >> buf.departureDates;
-			cout << "Тип размещения: "; 	cin >> buf.placementType;
-			cout << "Номер: "; 	cin >> buf.room;
-			fwrite(&buf, sizeof(buf), 1, f);
-			
-		}
+		fwrite(&clients, sizeof(clients), 1, f);
+
 		fclose(f);
 	}
 	else {
@@ -118,6 +146,35 @@ void output()
 	}
 }
 
+void toConsole()
+{
+	for (int i = 0; i < current_size; i++)
+	{
+		cout << "Паспортные данные: " << clients[i].passportDetails << endl;
+		cout << "Фамилия: " << clients[i].lastName << endl;
+		cout << "Дата отъезда: " << clients[i].departureDates << endl;
+		cout << "Тип размещения: " << clients[i].placementType << endl;
+		cout << "Номер: " << clients[i].room << endl << endl;
+	}
+}
+
+void delClient()
+{
+	int number;
+
+	cout << "Введите номер клиента: ";
+	cin >> number;
+
+	if (number < current_size)
+	{
+		for (int i = number; i < current_size - 1; i++)
+		{
+			clients[i] = clients[i + 1];
+		}
+		current_size--;
+		cout << "Клиент под номером " << number << " удален" << endl;
+	}
+}
 
 void find(char lastName[16])
 {
