@@ -6,7 +6,7 @@ using namespace std;
 int main()
 {
     setlocale(LC_ALL, "rus");
-
+    int i = 0;
     char buff[256];
     char smallest[256];
     ofstream file1("file1.txt");
@@ -15,7 +15,17 @@ int main()
     char inputString[256];
     cout << "Введите строку символов: ";
     cin.getline(inputString, sizeof(inputString));
-    file1 << inputString;
+    while(inputString[i] != '\0')
+    {
+        if (inputString[i] != '0')
+            file1 << inputString[i];
+        else
+        {
+            inputString[i] = ' ';
+            file1 << inputString[i];
+        }
+        i++;
+    }
 
     file1.close();
 

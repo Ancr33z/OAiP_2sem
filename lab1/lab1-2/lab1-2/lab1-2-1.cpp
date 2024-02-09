@@ -4,11 +4,11 @@
 using namespace std;
 
 float equation1(float x) {
-    return (cos(x) + x - 7);
+    return (pow(x, 3) + x - 3);
 }
 
 float equation2(float x) {
-    return (exp(x) - (1 / x));
+    return (pow(cos(x), 3));
 }
 
 float bisectionMethod(float (*equation)(float), float a, float b, float epsilon, int maxIterations) {
@@ -26,7 +26,7 @@ float bisectionMethod(float (*equation)(float), float a, float b, float epsilon,
         }
 
         iteration++;
-    } while (fabs(a - b) > 2 * epsilon && iteration < maxIterations);
+    } while (fabs(a - b) > 2 * epsilon);
 
     return x;
 }

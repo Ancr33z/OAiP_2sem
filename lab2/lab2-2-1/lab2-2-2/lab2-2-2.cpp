@@ -28,28 +28,28 @@ int main() {
     fopen_s(&g, "g.txt", "w");
 
     for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < 5; ++j) {
+        for (int j = 0; j < 2; ++j) {
             fscanf_s(f, "%d", &num);
             fprintf(g, " %d", num);
         }
         fopen_s(&k, "k.txt", "w");
-        for (int j = 0; j < 5; ++j) {
+        for (int j = 0; j < 2; ++j) {
             fscanf_s(f, "%d", &num);
             fprintf(k, " %d", num);
         }
 
-        for (int j = 0; j < 5; ++j) {
+        for (int j = 0; j < 2; ++j) {
             fscanf_s(f, "%d", &num);
             fprintf(g, " %d", num);
         }
         fclose(k);
         fopen_s(&k, "k.txt", "r");
-        for (int j = 0; j < 5; ++j) {
+        for (int j = 0; j < 2; ++j) {
             fscanf_s(k, "%d", &num);
             fprintf(g, " %d", num);
         }
         fclose(k);
-        for (int j = 0; j < 5; ++j) {
+        for (int j = 0; j < 2; ++j) {
             fscanf_s(f, "%d", &num);
             fprintf(g, " %d", num);
         }
@@ -62,3 +62,6 @@ int main() {
 
     return 0;
 }
+
+
+// Добавить работоспособность к 2 элементам

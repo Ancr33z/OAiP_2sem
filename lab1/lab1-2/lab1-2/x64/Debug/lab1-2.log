@@ -1,30 +1,38 @@
-﻿Сборка начата 29.01.2024 16:58:07.
+﻿Сборка начата 09.02.2024 14:56:11.
 Уровень детализации журнала: Normal.     1>Проект "D:\education\raboti\Labi\OAiP_2sem\lab1\lab1-2\lab1-2\lab1-2.vcxproj" в узле 2 (целевые объекты Build).
-     1>PrepareForBuild:
-         Создание каталога "D:\education\raboti\Labi\OAiP_2sem\lab1\lab1-2\x64\Debug\".
-         Создание каталога "x64\Debug\lab1-2.tlog\".
-       InitializeBuildStatus:
-         Создание "x64\Debug\lab1-2.tlog\unsuccessfulbuild", так как было задано "AlwaysCreate".
-         Обращение к "x64\Debug\lab1-2.tlog\unsuccessfulbuild".
+     1>C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: промежуточный каталог (x64\Debug\) содержит файлы, которые используются совместно с другим проектом (lab1-2.vcxproj).  Это может привести к ошибкам очистки и перестроения.
+         Создание каталога "x64\Debug\lab1-2-1.tlog\".
+     1>InitializeBuildStatus:
+         Создание "x64\Debug\lab1-2-1.tlog\unsuccessfulbuild", так как было задано "AlwaysCreate".
+         Обращение к "x64\Debug\lab1-2-1.tlog\unsuccessfulbuild".
        ClCompile:
-         C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\HostX64\x64\CL.exe /c /ZI /JMC /nologo /W3 /WX- /diagnostics:column /sdl /Od /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /permissive- /Fo"x64\Debug\\" /Fd"x64\Debug\vc143.pdb" /external:W3 /Gd /TP /FC /errorReport:prompt "lab1-2.cpp"
-         lab1-2.cpp
-     1>D:\education\raboti\Labi\OAiP_2sem\lab1\lab1-2\lab1-2\lab1-2.cpp(38,27): warning C4305: инициализация: усечение из "double" в "float"
+         C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\HostX64\x64\CL.exe /c /ZI /JMC /nologo /W3 /WX- /diagnostics:column /sdl /Od /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /permissive- /Fo"x64\Debug\\" /Fd"x64\Debug\vc143.pdb" /external:W3 /Gd /TP /FC /errorReport:prompt "lab1-2-1.cpp"
+         lab1-2-1.cpp
+     1>D:\education\raboti\Labi\OAiP_2sem\lab1\lab1-2\lab1-2\lab1-2-1.cpp(7,27): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+     1>D:\education\raboti\Labi\OAiP_2sem\lab1\lab1-2\lab1-2\lab1-2-1.cpp(11,16): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+     1>D:\education\raboti\Labi\OAiP_2sem\lab1\lab1-2\lab1-2\lab1-2-1.cpp(38,27): warning C4305: инициализация: усечение из "double" в "float"
        Link:
-         C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\HostX64\x64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\education\raboti\Labi\OAiP_2sem\lab1\lab1-2\x64\Debug\lab1-2.exe" /INCREMENTAL /ILK:"x64\Debug\lab1-2.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\education\raboti\Labi\OAiP_2sem\lab1\lab1-2\x64\Debug\lab1-2.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\education\raboti\Labi\OAiP_2sem\lab1\lab1-2\x64\Debug\lab1-2.lib" /MACHINE:X64 "x64\Debug\lab1-2.obj"
-         lab1-2.vcxproj -> D:\education\raboti\Labi\OAiP_2sem\lab1\lab1-2\x64\Debug\lab1-2.exe
+         C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\HostX64\x64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\education\raboti\Labi\OAiP_2sem\lab1\lab1-2\x64\Debug\lab1-2-1.exe" /INCREMENTAL /ILK:"x64\Debug\lab1-2-1.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\education\raboti\Labi\OAiP_2sem\lab1\lab1-2\x64\Debug\lab1-2-1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\education\raboti\Labi\OAiP_2sem\lab1\lab1-2\x64\Debug\lab1-2-1.lib" /MACHINE:X64 "x64\Debug\lab1-2-1.obj"
+         lab1-2.vcxproj -> D:\education\raboti\Labi\OAiP_2sem\lab1\lab1-2\x64\Debug\lab1-2-1.exe
        FinalizeBuildStatus:
-         Файл "x64\Debug\lab1-2.tlog\unsuccessfulbuild" удаляется.
-         Обращение к "x64\Debug\lab1-2.tlog\lab1-2.lastbuildstate".
+         Файл "x64\Debug\lab1-2-1.tlog\unsuccessfulbuild" удаляется.
+         Обращение к "x64\Debug\lab1-2-1.tlog\lab1-2-1.lastbuildstate".
      1>Сборка проекта "D:\education\raboti\Labi\OAiP_2sem\lab1\lab1-2\lab1-2\lab1-2.vcxproj" завершена (целевые объекты Build).
 
 Сборка успешно завершена.
 
        "D:\education\raboti\Labi\OAiP_2sem\lab1\lab1-2\lab1-2\lab1-2.vcxproj" (целевой объект Build ) (1) ->
-       (Целевой объект ClCompile) -> 
-         D:\education\raboti\Labi\OAiP_2sem\lab1\lab1-2\lab1-2\lab1-2.cpp(38,27): warning C4305: инициализация: усечение из "double" в "float"
+       (Целевой объект PrepareForBuild) -> 
+         C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: промежуточный каталог (x64\Debug\) содержит файлы, которые используются совместно с другим проектом (lab1-2.vcxproj).  Это может привести к ошибкам очистки и перестроения.
 
-    Предупреждений: 1
+
+       "D:\education\raboti\Labi\OAiP_2sem\lab1\lab1-2\lab1-2\lab1-2.vcxproj" (целевой объект Build ) (1) ->
+       (Целевой объект ClCompile) -> 
+         D:\education\raboti\Labi\OAiP_2sem\lab1\lab1-2\lab1-2\lab1-2-1.cpp(7,27): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+         D:\education\raboti\Labi\OAiP_2sem\lab1\lab1-2\lab1-2\lab1-2-1.cpp(11,16): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+         D:\education\raboti\Labi\OAiP_2sem\lab1\lab1-2\lab1-2\lab1-2-1.cpp(38,27): warning C4305: инициализация: усечение из "double" в "float"
+
+    Предупреждений: 4
     Ошибок: 0
 
-Прошло времени 00:00:01.14
+Прошло времени 00:00:01.39

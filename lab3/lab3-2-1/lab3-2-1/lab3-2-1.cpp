@@ -7,6 +7,7 @@ int main()
 {
     setlocale(LC_ALL, "rus");
 
+    int count = 0;
     char buff[256];
     char currentChar;
     ifstream file1("FILE1.txt");
@@ -26,6 +27,7 @@ int main()
         {
             file2 << buff;
             file2 << '\n';
+            count++;
         }
     } while (file1.get(currentChar));
     file1.close();

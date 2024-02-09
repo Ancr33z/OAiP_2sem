@@ -14,7 +14,6 @@ void delClient();
 
 int clientNumber; FILE* f; errno_t err,choice, current_size = 0;
 
-
 typedef struct HotelClient
 {
 	char passportDetails[30];

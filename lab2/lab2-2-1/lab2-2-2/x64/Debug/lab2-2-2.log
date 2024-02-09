@@ -1,8 +1,6 @@
-﻿Сборка начата 29.01.2024 17:16:16.
+﻿Сборка начата 09.02.2024 15:09:25.
 Уровень детализации журнала: Normal.     1>Проект "D:\education\raboti\Labi\OAiP_2sem\lab2\lab2-2-1\lab2-2-2\lab2-2-2.vcxproj" в узле 2 (целевые объекты Build).
-     1>PrepareForBuild:
-         Создание каталога "x64\Debug\lab2-2-2.tlog\".
-       InitializeBuildStatus:
+     1>InitializeBuildStatus:
          Создание "x64\Debug\lab2-2-2.tlog\unsuccessfulbuild", так как было задано "AlwaysCreate".
          Обращение к "x64\Debug\lab2-2-2.tlog\unsuccessfulbuild".
        ClCompile:
@@ -20,4 +18,4 @@
     Предупреждений: 0
     Ошибок: 0
 
-Прошло времени 00:00:00.97
+Прошло времени 00:00:00.75
