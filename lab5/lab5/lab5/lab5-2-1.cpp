@@ -2,7 +2,16 @@
 
 using namespace std;
 
-FILE* f;
+
+void input();
+void writeToFile();
+void toConsole();
+void toConsoleFromFile();
+void find(int);
+void delCitizen();
+
+const int MAX_SIZE = 100;
+FILE* f; int current_size = 0;
 
 struct date
 {
@@ -20,7 +29,7 @@ struct adress
 };
 enum gender
 {
-	man = 1, woman
+	man = 0, woman
 };
 
 typedef struct information
@@ -33,42 +42,47 @@ typedef struct information
 	gender sex;
 } CITIZEN;
 
-void input(int);
-void find(int);
-void output();
 
+CITIZEN  clients[MAX_SIZE];
 
 int main()
 {
 	setlocale(LC_ALL, "RUS");
 
-	int i, b, choice, clientNumber, counter = 0;
+	int i, b, choice, number, counter = 0;
 	int birthdate;
 	do 
 	{
 		cout << "\n1.Ввод данных с клавиатуры и запись в файл\n";
-		cout << "2.Вывод данных из файла\n";
-		cout << "3.Поиск по фамилии\n";
+		cout << "2.Ввод данных в файл\n";
+		cout << "3.Вывод данных в консоль\n";
+		cout << "4.Вывод данных из файла\n";
+		cout << "5.Поиск по фамилии\n";
+		cout << "6.Удаление горожанина\n";
 		cout << "0.Выход из программы\n\n";
 		cout << "Введите номер операции: ";
 		cin >> choice;
 		switch (choice)
 		{
 		case 1:
-			cout << "Введите количество горжанин: ";
-			cin >> clientNumber;
-			input(clientNumber);
+			input();
 			break;
-
 		case 2:
-			output();
+			writeToFile();
+			break;
+		case 3:
+			toConsole();
+		case 4:
+			toConsoleFromFile();
 			break;
 
-		case 3:
+		case 5:
 			cout << "Введите дату рождения: ";
 			cin >> birthdate;
 			find(birthdate);
 			break;
+		case 6:
+			delCitizen();
 
 		default:
 			break;
@@ -78,37 +92,50 @@ int main()
 	return 0;
 }
 
-
-void input(int size)
+void input()
 {
 	setlocale(LC_ALL, "Russian");
+
 	int day, month, year;
 	int sex = 0;
 	bool err = false;
 
-	CITIZEN buf = { ' ', ' ', ' ', {}, {' '},};
+	if (current_size < MAX_SIZE)
+	{
+		cout << "Введите имя: "; cin >> clients[current_size].name; cout << endl;
+		cout << "Введите фамилию: "; cin >> clients[current_size].surname; cout << endl;
+		cout << "Введите отчество: "; cin >> clients[current_size].fathersName; cout << endl;
+
+		cout << "Введите дату рождения в формате (ДД ММ ГГГГ): "; cin >> day; clients[current_size].birthDate.day = day; 
+		cin >> month; clients[current_size].birthDate.month = month; 
+		cin >> year; clients[current_size].birthDate.year = year; cout << endl;
+
+		cout << "Введите город: "; cin >> clients[current_size].residentialАddress.city; cout << endl;
+		cout << "\t" << "Введите улицу: "; cin >> clients[current_size].residentialАddress.street; cout << endl;
+		cout << "\t" << "Введите дом: "; cin >> clients[current_size].residentialАddress.house; cout << endl;
+		cout << "\t" << "Введите квартиру: "; cin >> clients[current_size].residentialАddress.apartment; cout << endl;
+		do
+		{
+			cout << "Введите пол: 0-man 1-woman "; cin >> sex; (sex == 0) ? clients[current_size].sex = man : (sex == 1) ? clients[current_size].sex = woman : err = true;
+			if (err)
+				cout << "Некоректный ввод";
+		} while (err);
+
+		current_size++;
+	}
+	else {
+		cout << "Достигнуто максимальное количество клиентов.\n";
+	}
+
+}
+
+void writeToFile() {
+
 	if (!fopen_s(&f, "base.bin", "ab"))
 	{
-		for (int p = 0; p < size; p++)
-		{
 
-			cout << "Введите имя: "; cin >> buf.name; cout << endl;
-			cout << "Введите фамилию: "; cin >> buf.surname; cout << endl;
-			cout << "Введите отчество: "; cin >> buf.fathersName; cout << endl;
-			cout << "Введите дату рождения: "; cin >> day; buf.birthDate.day = day; cin >> month; buf.birthDate.month = month; cin >> year; buf.birthDate.year = year; cout << endl;
-			cout << "Введите город: "; cin >> buf.residentialАddress.city; cout << endl;
-			cout << "\t" << "Введите дом: "; cin >> buf.residentialАddress.house; cout << endl;
-			cout << "\t" << "Введите улицу: "; cin >> buf.residentialАddress.street; cout << endl;
-			cout << "\t" << "Введите квартиру: "; cin >> buf.residentialАddress.apartment; cout << endl;
-			do
-			{
-				cout << "Введите пол: 1-man 2-woman "; cin >> sex; (sex == 0) ? buf.sex = man : (sex == 1) ? buf.sex = woman : err = true;
-				if (err)
-					cout << "Некоректный ввод";
-			} while (err);
-			fwrite(&buf, sizeof(buf), 1, f);
+		fwrite(&clients, sizeof(clients), 1, f);
 
-		}
 		fclose(f);
 	}
 	else {
@@ -117,7 +144,24 @@ void input(int size)
 	}
 }
 
-void output()
+void toConsole()
+{
+	
+	for (int i = 0; i < current_size; i++)
+	{
+		cout << "Имя: " << clients[i].name << endl;
+		cout << "Фамилия: " << clients[i].surname << endl;
+		cout << "Отчество: " << clients[i].fathersName << endl;
+		cout << "Дата рождения: " << clients[i].birthDate.day << '.' << clients[i].birthDate.month << '.' << clients[i].birthDate.year << endl;
+		cout << "Адресс " << "Город: " << clients[i].residentialАddress.city << endl;
+		cout << "\t" << "Улица: " << clients[i].residentialАddress.street << endl;
+		cout << "\t" << "Дом: " << clients[i].residentialАddress.house << endl;
+		cout << "\t" << "Квартира: " << clients[i].residentialАddress.apartment << endl;
+		cout << "Пол: "; clients[i].sex ? (cout << "man" << endl) : (cout << "woman" << endl);
+	}
+}
+
+void toConsoleFromFile()
 {
 	CITIZEN buf;
 	if (!fopen_s(&f, "base.bin", "rb"))
@@ -178,4 +222,25 @@ void find(int birthDate)
 		cout << "Ошибка открытия файла";
 		return;
 	}
+}
+
+
+void delCitizen()
+{
+	int number;
+
+	cout << "Введите номер клиента: ";
+	cin >> number;
+
+	if (number < current_size)
+	{
+		for (int i = number; i < current_size - 1; i++)
+		{
+			clients[i] = clients[i + 1];
+		}
+		current_size--;
+		cout << "Клиент под номером " << number << " удален" << endl;
+	}
+	else
+		cout << "Клиента под таким номером нету";
 }

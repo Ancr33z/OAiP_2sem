@@ -27,7 +27,7 @@ typedef struct Station
 
 void input(int);
 void find(char[30]);
-void output();
+void toConsoleFromFile();
 
 
 int main()
@@ -53,7 +53,7 @@ int main()
 			break;
 
 		case 2:
-			output();
+			toConsoleFromFile();
 			break;
 
 		case 3:
@@ -100,7 +100,7 @@ void input(int size)
 	}
 }
 
-void output()
+void toConsoleFromFile()
 {
 	bool flag = false; RAILWAY buf;
 	if (!fopen_s(&f, "base.bin", "rb"))
