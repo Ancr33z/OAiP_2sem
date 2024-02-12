@@ -83,6 +83,27 @@ void ifileCamp(Camp* lagger, int SIZE)
 	cout << "\nИнформация считана из файла lagggerInfo.txt\n\n";
 }
 
+void searchInfo(Camp* lagger, int SIZE)
+{
+	string name;
+
+	printf("\nВведите название лагеря для поиска: ");
+	cin >> name;
+	for (int i = 0; i < SIZE; i++)
+	{
+		if (lagger[i].CampName == name)
+		{
+			cout << "Название лагеря: " << lagger[i].CampName << "\t";
+			cout << "Место лагеря: " << lagger[i].CampPlace << "\t";
+			cout << "Профиль лечения: " << lagger[i].CampType << "\t\t";
+			cout << "Количество путевок: " << lagger[i].voucher << "\t" << endl;
+			cout << "==============================================================================================================" << endl;
+
+		}
+	}
+
+
+}
 
 void main()
 {
@@ -92,13 +113,14 @@ void main()
 	Camp lager[SIZE];
 	short choose;
 	do {
-		cout << "Выберите, что сделать:\n1 — вывести информацию из файла;\n2 — вывести в консоль информацию о путёвках;\n3 — завершение работы.\n";
+		cout << "Выберите, что сделать:\n1 — вывести информацию из файла;\n2 — вывести в консоль информацию о путёвках;\n3 - Поиск лагеря по названию\n4 — завершение работы.\n";
 		cin >> choose;
 		switch (choose)
 		{
 		case 1: ifileCamp(lager, SIZE); break;
 		case 2: showInfo(lager, SIZE); break;
-		case 3: exit(0); break;
+		case 3: searchInfo(lager, SIZE); break;
+		case 4: exit(0); break;
 		}
-	} while (choose != 3);
+	} while (choose != 4);
 }
