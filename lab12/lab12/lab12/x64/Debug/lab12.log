@@ -1,0 +1,51 @@
+﻿Сборка начата 14.02.2024 10:01:43.
+Уровень детализации журнала: Normal.     1>Проект "D:\education\raboti\Labi\OAiP_2sem\lab12\lab12\lab12\lab12.vcxproj" в узле 2 (целевые объекты Build).
+     1>InitializeBuildStatus:
+         Обращение к "x64\Debug\lab12.tlog\unsuccessfulbuild".
+       ClCompile:
+         C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\bin\HostX64\x64\CL.exe /c /ZI /JMC /nologo /W3 /WX- /diagnostics:column /sdl /Od /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /permissive- /Fo"x64\Debug\\" /Fd"x64\Debug\vc143.pdb" /external:W3 /Gd /TP /FC /errorReport:prompt Heap.cpp
+         Heap.cpp
+     1>C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_math.h(401,24): error C2440: приведение типов: невозможно преобразовать "_T1" в "_Tw"
+                 with
+                 [
+                     _T1=void *
+                 ]
+       C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_math.h(401,24): message : Не существует контекста, в котором такое преобразование возможно
+       C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_math.h(443,17): message : выполняется компиляция ссылки на экземпляр шаблон функции "int _fpcomp<_Ty1,_Ty2>(_T1,_T2) throw()"
+                 with
+                 [
+                     _Ty1=void *,
+                     _Ty2=void *,
+                     _T1=void *,
+                     _T2=void *
+                 ]
+       D:\education\raboti\Labi\OAiP_2sem\lab12\lab12\lab12\Heap.cpp(51,8): message : выполняется компиляция ссылки на экземпляр шаблон функции "bool isless<void*,void*>(_Ty1,_Ty2) throw()"
+                 with
+                 [
+                     _Ty1=void *,
+                     _Ty2=void *
+                 ]
+     1>C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_math.h(401,33): error C2440: приведение типов: невозможно преобразовать "_T2" в "_Tw"
+                 with
+                 [
+                     _T2=void *
+                 ]
+       C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_math.h(401,33): message : Не существует контекста, в котором такое преобразование возможно
+     1>C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_math.h(401,16): error C2661: _fpcomp: нет перегруженной функции, принимающей 1 аргументов
+       C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_math.h(395,31): message : может быть "int _fpcomp(_T1,_T2) throw()"
+       C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_math.h(401,16): message : "int _fpcomp(_T1,_T2) throw()": ожидаются аргументы 2 — 1 предоставлены
+       C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_math.h(401,16): message : при попытке сопоставить список аргументов "()"
+     1>Сборка проекта "D:\education\raboti\Labi\OAiP_2sem\lab12\lab12\lab12\lab12.vcxproj" завершена (целевые объекты Build) с ошибкой.
+
+Ошибка сборки.
+
+       "D:\education\raboti\Labi\OAiP_2sem\lab12\lab12\lab12\lab12.vcxproj" (целевой объект Build ) (1) ->
+       (Целевой объект ClCompile) -> 
+         C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_math.h(401,24): error C2440: приведение типов: невозможно преобразовать "_T1" в "_Tw"
+         C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_math.h(401,33): error C2440: приведение типов: невозможно преобразовать "_T2" в "_Tw"
+         C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_math.h(401,16): error C2661: _fpcomp: нет перегруженной функции, принимающей 1 аргументов
+
+    Предупреждений: 0
+    Ошибок: 3
+
+Прошло времени 00:00:00.59
