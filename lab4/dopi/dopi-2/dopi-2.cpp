@@ -42,7 +42,12 @@ int main() {
 
     // Ввод данных с клавиатуры и заполнение массива
     cout << "Введите данные о поездах:\n";
-    for (int i = 0; i < SIZE; ++i) {
+
+    trains[0].departureTime = "20:08";
+    trains[0].destination = "Minsk";
+    trains[0].trainNumber = 2;
+
+    for (int i = 1; i < SIZE; ++i) {
         cout << "Поезд " << i + 1 << ":\n";
         cout << "Пункт назначения: ";
         cin >> trains[i].destination;
@@ -53,9 +58,10 @@ int main() {
         cout << endl;
     }
 
+
     // Сортировка массива по пунктам назначения
     sort(trains, trains + SIZE, compareDestinations);
-
+    
     // Ввод времени с клавиатуры
     string searchTime;
     cout << "Введите время, после которого хотите найти поезда (в формате HH:MM): ";

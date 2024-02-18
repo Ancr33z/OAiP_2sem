@@ -6,11 +6,10 @@ using namespace std;
 int main() {
     setlocale(LC_CTYPE, "Russian");
     int n, num;
-
+    int arr[20];
     printf("Введите количество повторений (10 положительных и 10 отрицательных считать как одно повторение): ");
     scanf_s("%d", &n);
     FILE* f;
-    FILE* k;
     FILE* g;
 
     fopen_s(&f, "f.txt", "w");
@@ -27,31 +26,28 @@ int main() {
     fopen_s(&f, "f.txt", "r");
     fopen_s(&g, "g.txt", "w");
 
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < 2; ++j) {
-            fscanf_s(f, "%d", &num);
-            fprintf(g, " %d", num);
-        }
-        fopen_s(&k, "k.txt", "w");
-        for (int j = 0; j < 2; ++j) {
-            fscanf_s(f, "%d", &num);
-            fprintf(k, " %d", num);
-        }
 
-        for (int j = 0; j < 2; ++j) {
-            fscanf_s(f, "%d", &num);
-            fprintf(g, " %d", num);
+
+    for (int i = 0; i < n; ++i) 
+    {
+
+        for (int j = 0; j < 20; j++)
+        {
+            fscanf_s(f, "%d", &arr[j]);
         }
-        fclose(k);
-        fopen_s(&k, "k.txt", "r");
-        for (int j = 0; j < 2; ++j) {
-            fscanf_s(k, "%d", &num);
-            fprintf(g, " %d", num);
-        }
-        fclose(k);
-        for (int j = 0; j < 2; ++j) {
-            fscanf_s(f, "%d", &num);
-            fprintf(g, " %d", num);
+        for (int j = 0; j < 10; j++)
+        {
+
+            for (int j = 0; j < 2; j++)
+            {
+                fscanf_s(f, "%d", &num);
+                fprintf(g, " %d", arr[j]);
+            }
+            for (int j = 0; j < 2; j++)
+            {
+                fscanf_s(f, "%d", &num);
+                fprintf(g, " %d", arr[j + 10]);
+            }
         }
     }
 
