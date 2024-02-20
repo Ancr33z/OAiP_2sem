@@ -21,7 +21,7 @@ int main()
 
     do
     {
-        file1 >> buff;
+        file1.getline(buff, 50);
 
         if (buff[0] == 'A')
         {
@@ -29,7 +29,7 @@ int main()
             file2 << '\n';
             count++;
         }
-    } while (file1.get(currentChar));
+    } while (!file1.eof());
     file1.close();
     file2.close();
 
