@@ -21,17 +21,27 @@ int main()
 
     do
     {
-        file1.getline(buff, 50);
+        file1.getline(buff, 250);
 
         if (buff[0] == 'A')
         {
             file2 << buff;
             file2 << '\n';
-            count++;
         }
     } while (!file1.eof());
     file1.close();
     file2.close();
+    ifstream file2count("FILE2.txt");
 
+    do
+    {
+        file2count >> buff;
+        if (buff != NULL)
+            count++;
+    } while (!file2count.eof());
+
+    file2.close();
+
+    cout << count-1;
     return 0;
 }
